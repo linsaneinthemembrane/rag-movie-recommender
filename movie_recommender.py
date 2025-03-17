@@ -88,9 +88,8 @@ def get_popular_tv():
         st.warning(f"Error getting popular TV shows: {response.text}")
         return []
 
-# Function to clean and shorten LLM response
 def clean_and_shorten_response(response_text):
-    # Remove the thinking part if present
+    # Remove the thinking part of response
     if "<think>" in response_text and "</think>" in response_text:
         start_idx = response_text.find("</think>") + len("</think>")
         response_text = response_text[start_idx:].strip()
@@ -98,14 +97,12 @@ def clean_and_shorten_response(response_text):
     # Split into sentences (simple approach)
     sentences = response_text.replace("! ", ". ").replace("? ", ". ").split(". ")
     
-    # Keep only the first 3 sentences (or fewer if there aren't 3)
     short_response = ". ".join(sentences[:3])
     if not short_response.endswith("."):
         short_response += "."
         
     return short_response
 
-# Helper function to extract year from date string
 def extract_year(date_str):
     if not date_str:
         return "Unknown"
@@ -167,17 +164,14 @@ def get_genre_names(genre_ids):
 # Streamlit UI
 st.title("🎬 Personalized Movie & TV Show Recommender")
 
-# User input for liked movies/shows
 user_input = st.text_area("Enter movies or TV shows you like (comma-separated)")
 
-# Add genre selection
 genres = sorted(list(set(all_genres_map.values())))
 selected_genres = st.multiselect("Select preferred genres", genres)
 
-# Add release year range
 start_year, end_year = st.slider("Select release year range", 1900, 2023, (1990, 2023))
 
-# Add rating slider
+# Add rating slider starting at 8.0
 min_rating = st.slider("Minimum rating", 0.0, 10.0, 8.0, 0.1)
 
 if st.button("Get Recommendations"):
@@ -189,7 +183,6 @@ if st.button("Get Recommendations"):
         all_recommendations = []
         
         for title in user_titles:
-            # Search for movies and TV shows
             movie_results = search_movies(title)
             tv_results = search_tv(title)
             
@@ -312,7 +305,7 @@ if st.button("Get Recommendations"):
                         if genres:
                             st.write(f"Genres: {', '.join(genres)}")
                         
-                        # Get LLM summary using DeepSeek R1
+                        # Get LLM summary using DeepSeek
                         try:
                             response = ollama.chat(
                                 model="deepseek-r1",
@@ -356,7 +349,6 @@ try:
 except Exception as e:
     st.error(f"Error loading trending content: {str(e)}")
 
-# Add a footer
 st.markdown("---")
 st.write("Data provided by The Movie Database (TMDb)")
 st.write("Powered by DeepSeek R1 for personalized recommendations")
