@@ -4,8 +4,8 @@ from datetime import datetime
 import ollama
 
 # --- API KEYS ---
-TMDB_API_KEY = "8c5bf1da4d702c91f6741cda5d95d26e"
-TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YzViZjFkYTRkNzAyYzkxZjY3NDFjZGE1ZDk1ZDI2ZSIsIm5iZiI6MTc0MjIyMDQ0NS4wNTUsInN1YiI6IjY3ZDgyYzlkOTE2NWYzNzExODAxODViZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rUJHGrxbbK-wWFQp0Er-Of1eEShEBZ453oLsUWr5My8"
+TMDB_API_KEY = "tmdb_key"
+TMDB_ACCESS_TOKEN = "tmdb_access_token"
 
 # --- TMDB API Functions ---
 def search_movies(query):
