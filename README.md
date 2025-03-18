@@ -1,5 +1,8 @@
 # RAG Movie Recommender App
 
+## Demo Video
+[![RAG Movie Recommender](https://img.youtube.com/vi/rrMOod4dQ78/maxresdefault.jpg)](https://www.youtube.com/watch?v=rrMOod4dQ78)  
+
 ## Overview
 
 This project is a personalized movie and TV show recommendation application built with Streamlit. The app allows users to discover new content based on their preferences, leveraging the TMDB (The Movie Database) API for data and DeepSeek R1 for generating personalized recommendation summaries.
