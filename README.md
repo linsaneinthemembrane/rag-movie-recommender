@@ -15,9 +15,7 @@ This project is a personalized movie and TV show recommendation application buil
 
 ## Technologies Used
 
-### Core Technologies
-- **Python**: Primary programming language
-- **Streamlit**: Web application framework for creating the user interface
+### API
 - **TMDB API**: Source of movie and TV show data, including metadata and recommendations
 
 ### AI Integration
